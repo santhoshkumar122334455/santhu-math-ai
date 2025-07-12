@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santhu Math AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="login-canvas"></canvas>
+    <canvas id="chat-canvas" class="hidden"></canvas>
+
+    <div id="login-container" class="container">
+        <div class="login-box">
+            <h1 class="title">Santhu Math AI</h1>
+            <p id="login-subtitle" class="subtitle">Log in to analyze complex mathematical problems</p>
+            <form id="login-form">
+                <div class="input-group"><input type="text" id="username" placeholder="Username" required></div>
+                <div class="input-group"><input type="password" id="password" placeholder="Password" required></div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            <p id="login-error" class="error-message"></p>
+        </div>
+    </div>
+
+    <div id="chat-container" class="container hidden">
+        <div class="chat-interface-wrapper">
+            <div class="left-sidebar">
+                <div class="sidebar-header"><h1 class="title">Santhu Math AI</h1></div>
+                <div class="sidebar-actions">
+                    <button id="new-chat-btn" class="btn-secondary">New Chat</button>
+                    <button id="logout-btn" class="btn-secondary">Logout</button>
+                </div>
+                <div class="history-column">
+                    <h3>History</h3>
+                    <ul id="history-list"></ul>
+                </div>
+                <div class="prompt-column">
+                    <h3>Your Prompt</h3>
+                    <form id="chat-form">
+                        <textarea id="message-input" placeholder="Ask a mathematical question..."></textarea>
+                        <button type="submit" class="btn-primary">Send Prompt</button>
+                    </form>
+                </div>
+            </div>
+            <div class="answer-column">
+                <div class="column-header"><h2>AI Answer</h2></div>
+                <div class="chat-messages" id="answer-messages">
+                    <div class="placeholder-text">Your AI-generated answers will appear here.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
